@@ -29,7 +29,7 @@ namespace binary_searchtree
                     current.left = node;
                     break;
                 }
-                else if (current.left != null)
+                else if (current.left != null && data < current.data)
                 {
                     current = current.left;
                 }
@@ -38,7 +38,7 @@ namespace binary_searchtree
                     current.right = node;
                     break;
                 }
-                else if (current.right != null)
+                else if (current.right != null && data >= current.data)
                 {
                     current = current.right;
                 }
@@ -46,31 +46,26 @@ namespace binary_searchtree
         }
 
         public bool Search(int myData)
-        {
-            if (myData == root.data)
-            {
-                Console.WriteLine("Found your number");
-                return true;
-            }
-            current = root;
+        {        
+            Node current = root;
             while (true)
             {
-                if (myData != current.data && myData.CompareTo(current.data) > 0 && current.right != null)
+                if (myData != current.data && myData > current.data && current.right != null)
                 {
                     current = current.right;
                 }
-                else if (myData != current.data && myData.CompareTo(current.data) < 0 && current.left != null)
+                else if (myData != current.data && myData < current.data && current.left != null)
                 {
                     current = current.left;
                 }
                 else if (current.data == myData)
                 {
-                    Console.WriteLine("Found your number");
+                    Console.WriteLine($"Found your number {current.data}");
                     return true;
                 }
                 else
                 {
-                    Console.WriteLine("Can't find your number");
+                    Console.WriteLine($"Can't find your number {myData}");
                     return false;
                 }
             }

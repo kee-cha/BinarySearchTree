@@ -22,7 +22,7 @@ namespace binary_searchtree
             LL.InsertAtEnd(115);
 
 
-            LL.Search(1);
+            LL.Search(120);
             
             Console.ReadLine();
         }
