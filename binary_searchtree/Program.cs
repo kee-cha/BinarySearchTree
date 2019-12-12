@@ -20,7 +20,11 @@ namespace binary_searchtree
             LL.InsertAtEnd(82);
             LL.InsertAtEnd(145);
             LL.InsertAtEnd(115);
-            Console.WriteLine();
+
+
+            LL.Search(1);
+            
+            Console.ReadLine();
         }
     }
 }
